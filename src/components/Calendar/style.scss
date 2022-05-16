@@ -1,7 +1,7 @@
   .container{
     display: flex;
     flex-direction: row;
-    width: 880px;
+    width: 900px;
     align-items: center;
     justify-content: center;
     border: 20px solid #008c85;
@@ -40,29 +40,26 @@
     font-weight: bold;
   }
   .sizes{
-    width: 430px;
+    width: 450px;
   }
   .day {
     margin: 12px;
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 50%;
+    border: 5px solid white;
   }
   .anotherMonth {
     color: #9e9e9e;
   }
   .thisCurrentDay {
-    color: white;
+    color: #eb0852;
     border-radius: 50%;
-    background-color: #eb0852;
-    font-weight: bold;
+    border: 5px solid #eb0852;
+    border-radius: 50%;
   }
-  // .radiusDay{
-  //   border: 5px solid #eb0852;
-  //   border-radius: 50%;
-  // }
-  
 

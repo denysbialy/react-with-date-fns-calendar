@@ -16,7 +16,7 @@ const CreateDatesOfWeek = ({
         key={currentDate}
         className={`day 
         ${isSameMonth(currentDate, currentDateOfThisMonth) ? "" : "anotherMonth"} 
-        ${isSameDay(currentDate, selectedCurrentDate)? "thisCurrentDay radiusDay": ""}`}
+        ${isSameDay(currentDate, selectedCurrentDate)? "thisCurrentDay": ""}`}
         onClick={() => {setSelectedCurrentDate(cloneDate);}}
         >
         {format(currentDate, "d")}
