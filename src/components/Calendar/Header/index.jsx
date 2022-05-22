@@ -1,8 +1,8 @@
 import { format } from "date-fns";
-import "../style.scss"
+import styles from "../style.module.scss"
 
 const Header = ({currentDateOfThisMonth}) => {
-  return <h2 className="header">{format(currentDateOfThisMonth, "MMMM yyyy")}</h2>;
+  return <h2 className={styles.header}>{format(currentDateOfThisMonth, "MMMM yyyy")}</h2>;
 };
 
 export default Header;

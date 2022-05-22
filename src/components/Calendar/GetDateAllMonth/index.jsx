@@ -5,8 +5,8 @@ import {
   endOfMonth,
   endOfWeek,
 } from "date-fns";
-import "../style.scss";
-import CreateDatesOfWeek from "../DaysOfAllMonth";
+import styles from "../style.module.scss";
+import CreateDatesOfWeek from "../CreateDatesOfWeek";
 
 const GetDateAllMonth = ({ selectedCurrentDate, currentDateOfThisMonth, setSelectedCurrentDate }) => {
   const startOfTheSelectedMonth = startOfMonth(currentDateOfThisMonth);
@@ -33,7 +33,7 @@ const GetDateAllMonth = ({ selectedCurrentDate, currentDateOfThisMonth, setSelec
 
   return (
     <tbody>
-      <tr className="weekContainer">{allWeeks}</tr>
+      <tr className={styles.weekContainer}>{allWeeks}</tr>
     </tbody>
   );
 };

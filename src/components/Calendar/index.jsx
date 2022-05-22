@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./style.scss";
+import styles from "./style.module.scss";
 import Header from "./Header";
 import WeekDaysNames from "./WeekDaysNames";
 import GetDateAllMonth from "./GetDateAllMonth";
@@ -10,11 +10,11 @@ const Calendar = () => {
   const currentDateOfThisMonth = new Date();
 
   return (
-    <main className="container">
+    <main className={styles.container}>
       <div>
         <ShowCurrentDay selectedCurrentDate={selectedCurrentDate} />
       </div>
-      <div className="sizes">
+      <div className={styles.sizes}>
         <Header currentDateOfThisMonth={currentDateOfThisMonth} />
         <table>
           <WeekDaysNames currentDateOfThisMonth={currentDateOfThisMonth} />
