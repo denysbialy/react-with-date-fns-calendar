@@ -1,8 +1,15 @@
 import { format } from "date-fns";
-import styles from "../style.module.scss"
+import { useContext } from "react";
+import { DateContext } from "../../../context";
+import styles from "../style.module.scss";
 
-const Header = ({currentDateOfThisMonth}) => {
-  return <h2 className={styles.header}>{format(currentDateOfThisMonth, "MMMM yyyy")}</h2>;
+const Header = () => {
+  const [currentDateOfThisMonth] = useContext(DateContext);
+  return (
+    <h2 className={styles.header}>
+      {format(currentDateOfThisMonth, "MMMM yyyy")}
+    </h2>
+  );
 };
 
 export default Header;

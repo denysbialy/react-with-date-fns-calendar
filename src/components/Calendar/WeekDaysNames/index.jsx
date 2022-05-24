@@ -1,16 +1,18 @@
 import { format, startOfWeek, addDays } from "date-fns";
+import { useContext } from "react";
+import { DateContext } from "../../../context";
 import styles from "../style.module.scss";
 
-const WeekDaysNames = ({ currentDateOfThisMonth }) => {
+const WeekDaysNames = () => {
+  const [currentDateOfThisMonth] = useContext(DateContext);
+
   const weekStartDate = startOfWeek(currentDateOfThisMonth);
-  const weekDays = [];
-  for (let day = 0; day < 7; day++) {
-    weekDays.push(
-      <td className={`${styles.day} ${styles.weekNames}`}key={day}>
-        {format(addDays(weekStartDate, day), "EEEEE")}
-      </td>
-    );
-  }
+
+  const weekDays = new Array(7).fill(null).map((_, index) => (
+    <td className={`${styles.day} ${styles.weekNames}`} key={index}>
+      {format(addDays(weekStartDate, index), "EEEEE")}
+    </td>
+  ));
   return (
     <thead>
       <tr className={styles.weekContainer}>{weekDays}</tr>

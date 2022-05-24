@@ -1,11 +1,14 @@
 import { format } from "date-fns";
-import styles from "../style.module.scss"
+import { useContext } from "react";
+import { DateContext } from "../../../context";
+import styles from "../style.module.scss";
 
-const ShowCurrentDay = ({ selectedCurrentDate }) => {
+const ShowCurrentDay = () => {
+  const [selectedCurrentDate] = useContext(DateContext);
   return (
     <div className={styles.showDay}>
       <div>{format(new Date(selectedCurrentDate), "EEEE")}</div>
-      <div className={styles.fontSize}>{format(new Date(selectedCurrentDate), "d")}</div>
+      <div className={styles.fontSize}>{format(selectedCurrentDate, "d")}</div>
     </div>
   );
 };

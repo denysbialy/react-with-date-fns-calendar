@@ -2,30 +2,35 @@ import React, { useState } from "react";
 import styles from "./style.module.scss";
 import Header from "./Header";
 import WeekDaysNames from "./WeekDaysNames";
-import GetDateAllMonth from "./GetDateAllMonth";
+import Month from "./Month";
 import ShowCurrentDay from "./ShowCurrentDay";
+import { DateContext } from "../../context";
 
 const Calendar = () => {
   const [selectedCurrentDate, setSelectedCurrentDate] = useState(new Date());
-  const currentDateOfThisMonth = new Date();
+  const [currentDateOfThisMonth] = useState(new Date());
 
   return (
-    <main className={styles.container}>
-      <div>
-        <ShowCurrentDay selectedCurrentDate={selectedCurrentDate} />
-      </div>
-      <div className={styles.sizes}>
-        <Header currentDateOfThisMonth={currentDateOfThisMonth} />
-        <table>
-          <WeekDaysNames currentDateOfThisMonth={currentDateOfThisMonth} />
-          <GetDateAllMonth
-            selectedCurrentDate={selectedCurrentDate}
-            currentDateOfThisMonth={currentDateOfThisMonth}
-            setSelectedCurrentDate={setSelectedCurrentDate}
-          />
-        </table>
-      </div>
-    </main>
+    <DateContext.Provider
+      value={[
+        selectedCurrentDate,
+        setSelectedCurrentDate,
+        currentDateOfThisMonth,
+      ]}
+    >
+      <main className={styles.container}>
+        <div>
+          <ShowCurrentDay />
+        </div>
+        <div className={styles.sizes}>
+          <Header />
+          <table>
+            <WeekDaysNames />
+            <Month />
+          </table>
+        </div>
+      </main>
+    </DateContext.Provider>
   );
 };
 
