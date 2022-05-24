@@ -9,7 +9,7 @@ const Day = ({ date, index }) => {
   const [selectedCurrentDate, setSelectedCurrentDate, currentDateOfThisMonth] =
     useContext(DateContext);
 
-  const styless = cx(styles.day, {
+  const styleList = cx(styles.day, {
     [styles.anotherMonth]: !isSameMonth(
       addDays(date, index),
       currentDateOfThisMonth
@@ -22,7 +22,7 @@ const Day = ({ date, index }) => {
 
   return (
     <td
-      className={styless}
+      className={styleList}
       onClick={() => {
         setSelectedCurrentDate(addDays(date, index));
       }}
